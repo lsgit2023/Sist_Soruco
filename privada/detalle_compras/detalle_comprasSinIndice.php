@@ -79,10 +79,10 @@ echo"
     <!------FIN BUSCADOR------>";
     echo"<div id='detalle1'>";
 
-$sql = $db->Prepare("SELECT pr.*, pr.nombre, pr.precio, det.cantidad
-                     FROM productos pr
-                     INNER JOIN detalle_compras det ON det.id_producto=pr.id_producto
-                     WHERE pr.estado <> 'X' AND det.estado <> 'X' 
+$sql = $db->Prepare("SELECT prec.*, prec.nombre, prec.precio, det.cantidad
+                     FROM productos prec
+                     INNER JOIN detalle_compras det ON det.id_producto=prec.id_producto
+                     WHERE prec.estado <> 'X' AND det.estado <> 'X' 
                      GROUP BY(det.cantidad)
                      ORDER BY id_detalle_compra DESC                 
                         ");
